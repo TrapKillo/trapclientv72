@@ -1,6 +1,4 @@
-<html>
-
-<head>
+<html><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,9 +7,8 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
-    <title>
-    Client</title>
-    <link id="favicon" rel="icon" type="image/png" href="favicon-32x32.png">
+    <title>Agar.io</title>
+    <link id="favicon" rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADLUlEQVRYR+1XO2wTQRB9s2fnhxKHT2RckABCUWwJJAQdKeloUwFdBBItDRUdFUQIGgqoKEIDNQ1ICIl0ICGBkigCEpvCjsLPQcHYzu2gudyez8fZdyaOoOCaRN7dmbfzefOW8Jc/6sT/MoaHK+nUFAjHQeqY/6yCzjPjdXKz9uzIp+KruHZjAVhKj562Sd3UhKNxDCtGGeBr2VJ+Jmp/WwDv9mVO1JJ9txg8aQwxM4hCjjE3fLnrCihYWk+PrxaetgLSEsBCevQCSN3QhBSM8TDHIZYdkPK7AaL1xexq4V4YiFAAi5mxWRt01jkQcJ4EoZcIPQEwdWbUwagxQ4d4ssCzE8X8+eDSbwDk5lqpu55z15E4HSIFKyIKcvvvrPHDAJe/bSLRBECKra7UE79zBWBQKfST/Bf/qzKjrO2taPhA9NarJ/1d0gRgPnOwwMAB40Zc7lEWEjFzH4S3yYwvARCK8SZbWvFa2APghd6HdreynHxv56uwRlm7VeHaJtZXcqXCdadOjXHv9u6mAcm5srbj2zu7rm2nJkwLS3tmiytjHgDp92qy96U/VyPKiiy4uOhsZnwOpMLUghOB+f1jd5jokgHQR4ThLt3egPymbfyU6AbS4ABYyBx6ocGnzObUH1R9VDQ2tHbaswGAH+dK+TOhAKTyg0QT5SBqXQhKOqLRYTSXLS5P/gfwb0TAGz5uhQ6Swi7VGfVG1UD7InQHkCEKmXh7re6QUKw2XEqlD9cH+t/7b9FNIpKLrbUjoiYu2EEqbnAA1nOllVTTLAgbRt3gAxnLX6X/fcImdBg5lGzGsRuFnRjHxPw2V8p74rZp1i6OjE7ZCfWwG4JEmE/4vyNB4tRCC0kmA0raM0qSyeTbCEoyJ9kEf+hNwXckSiUlMiNEpFjYEqZS4XUAon4qrjAN4wQL/GCimD8XXGsry5nUDBOGOpXlwf1hN28bAbMoQqWe7LvtjeqQx4cnYkTxOJFu3ImAj2pTX55YKzxqxZSxBJ/UBSt11S9Y21GvAs1B2/dbPUb8Z2MB8EekluiZJvdhaiIjDpm1vAefJyrVR+Pl1Q9RsyFWCuIa2c6+X8Qq7zA/A8DsAAAAAElFTkSuQmCC">
     <script type="text/javascript">
         window.isChrome = /chrome/.test(navigator.userAgent.toLowerCase())
         window.ASSETS_ROOT = ""
@@ -13651,40 +13648,39 @@ inject();
 
 <body>
     <div id="debug-overlay"></div>
-    <div id="overlays" style="display:none; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 200">
+    <div id="overlays" style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 200;">
         <div class="gamepad_alert" id="controller_alert_connected" style="display:none">
             <div class="wrapper"><span class="controller_icon"> </span><span class="alert_text">Controller Connected</span></div>
         </div>
         <div class="gamepad_alert" id="controller_alert_disconnected" style="display:none">
             <div class="wrapper"><span class="controller_icon"> </span><span class="alert_text">Controller Disconnected</span></div>
         </div>
-        <div id="helloContainer" data-logged-in="1">
+        <div id="helloContainer" data-logged-in="1" style="transform: translate(-50%, -50%); height: 247px;">
             <div class="v72-panel" id="mainPanel">
                 <div role="form" novalidate="">
                     <div style="float: left; margin-left: 20px">
                         <h2>TrapClient</h2>
                     </div>
                     <div class="form-group">
-                    <input id="nick" class="form-control save" data-box-id="0" placeholder="Nick" maxlength="30">
-					 	 <li class="server" type="none" onclick="setserver('35.160.228.229:443');">
-                                <a class="onServer">FFA BOTS</a> <span class="label serverNumber" style="background-color: rgb(76, 175, 80);">1</span></li>
-                                <span class="label serverNumber" style="background-color: rgb(8, 68, 255);">1</span></li>
-                        </ul>
+                    <input id="nick" class="form-control save" data-box-id="0" placeholder="Make sure port of server you launched is 8081" maxlength="30">
+					 	                    <div id="server" style="margin-top: 10px;">
+                       <button style="" id="serverbutton" class="botserver" type="button" onclick="connect('ws://154.16.127.140:776'); $('#servermode').text('Bots'); $('#mini').text('10/10');">Bots</button>
+                    </div>
 
 
-                    </select>
+                    
                     <br clear="both">
                 </div>
                     <div class="form-group" id="v72-main-buttons">
-                        <div class="row"><button class="btn btn-info btn-settings" type="button" onclick="toggleSettings(); return false;"><i class="glyphicon glyphicon-cog"></i></button><button class="btn btn-play btn-primary btn-needs-server" type="submit" onclick="setNick(document.getElementById('nick').value); return false;" data-itr="play"></button></div>
+                        <div class="row"><button class="btn btn-info btn-settings" type="button" onclick="toggleSettings(); return false;"><i class="glyphicon glyphicon-cog"></i></button><button class="btn btn-play btn-primary btn-needs-server" type="submit" onclick="setNick(document.getElementById('nick').value); return false;" data-itr="play">Play</button></div>
                     </div>
                     <div class="checkbox" id="settings" style="display:none">
                         <div style="float: left; width: 200px">
                             <div id="locationKnown"></div>
-                            <div id="settingsChoice"><select class="form-control" id="quality" onchange="setQuality($('#quality').val());" required=""><option disabled="" value="" data-itr="page_graphics_title"></option><option value="High" selected="" data-itr="page_graphics_high"></option><option value="Medium" data-itr="page_graphics_medium"></option><option value="Low" data-itr="page_graphics_low"></option><option value="Auto" data-itr="page_graphics_auto"></option></select></div>
-                            <div id="options" style="margin: 6px; font-size: 12px"><label><input id="noSkins" type="checkbox" onchange="setSkins(!$(this).is(':checked'));"><span data-itr="option_no_skins"></span></label><label><input id="noNames" type="checkbox" onchange="setNames(!$(this).is(':checked'));"><span data-itr="option_no_names"></span></label><label><input id="noColors" type="checkbox" onchange="setColors($(this).is(':checked'));"><span data-itr="option_no_colors"></span></label><label><input id="showMass" type="checkbox" onchange="setShowMass($(this).is(':checked'));"><span data-itr="option_show_mass"></span></label><label><input id="darkTheme" type="checkbox" onchange="setDarkTheme($(this).is(':checked'));"><span data-itr="option_dark_theme"></span></label><label><input id="skipStats" type="checkbox" onchange="setSkipStats($(this).is(':checked'));"><span data-itr="option_skip_stats"></span></label></div>
+                            <div id="settingsChoice"><select class="form-control" id="quality" onchange="setQuality($('#quality').val());" required=""><option disabled="" value="" data-itr="page_graphics_title">--Graphics Quality--</option><option value="High" selected="" data-itr="page_graphics_high">Graphics:High</option><option value="Medium" data-itr="page_graphics_medium">Graphics:Medium</option><option value="Low" data-itr="page_graphics_low">Graphics:Low</option><option value="Auto" data-itr="page_graphics_auto">Graphics:Auto</option></select></div>
+                            <div id="options" style="margin: 6px; font-size: 12px"><label><input id="noSkins" type="checkbox" onchange="setSkins(!$(this).is(':checked'));"><span data-itr="option_no_skins">No skins</span></label><label><input id="noNames" type="checkbox" onchange="setNames(!$(this).is(':checked'));"><span data-itr="option_no_names">No names</span></label><label><input id="noColors" type="checkbox" onchange="setColors($(this).is(':checked'));"><span data-itr="option_no_colors">No colors</span></label><label><input id="showMass" type="checkbox" onchange="setShowMass($(this).is(':checked'));"><span data-itr="option_show_mass">Show mass</span></label><label><input id="darkTheme" type="checkbox" onchange="setDarkTheme($(this).is(':checked'));"><span data-itr="option_dark_theme">Dark theme</span></label><label><input id="skipStats" type="checkbox" onchange="setSkipStats($(this).is(':checked'));"><span data-itr="option_skip_stats">Skip stats</span></label></div>
                         </div>
-                        <div style="float: right; width: 120px"><button class="btn btn-warning btn-spectate btn-needs-server" onclick="spectate(); return false;" disabled="" data-itr="spectate"></button></div><br clear="both">
+                        <div style="float: right; width: 120px"><button class="btn btn-warning btn-spectate btn-needs-server" onclick="spectate(); return false;" data-itr="spectate">Spectate</button></div><br clear="both">
                         <div id="tags-container"><span id="user-id-tag"></span><span id="version-tag"></span></div>
                     </div>
                 </div>
@@ -13693,23 +13689,23 @@ inject();
                 <h2>
                     <center>Match Results</center>
                 </h2><canvas id="statsGraph" width="350" height="230"></canvas>
-                <div id="statsPelletsContainer"><span class="stats-food-eaten" id="statsText"></span><span id="statsSubtext" data-itr="stats_food_eaten"></span></div>
-                <div id="statsHighestMassContainer"><span class="stats-highest-mass" id="statsText"></span><span id="statsSubtext" data-itr="stats_highest_mass"></span></div>
-                <div id="statsTimeAliveContainer"><span class="stats-time-alive" id="statsText"></span><span id="statsSubtext" data-itr="stats_time_alive"></span></div>
-                <div id="statsTimeLeaderboardContainer"><span class="stats-leaderboard-time" id="statsText"></span><span id="statsSubtext" data-itr="stats_leaderboard_time"></span></div>
-                <div id="statsPlayerCellsEatenContainer"><span class="stats-cells-eaten" id="statsText"></span><span id="statsSubtext" data-itr="stats_cells_eaten"></span></div>
-                <div id="statsTopPositionContainer"><span class="stats-top-position" id="statsText">?</span><span id="statsSubtext" data-itr="stats_top_position"></span></div>
-                <hr style="position:absolute;bottom:370px;width:100%;margin:0px"><button class="btn btn-primary" id="statsContinue" data-itr="continue" onclick="closeStats();"></button>
+                <div id="statsPelletsContainer"><span class="stats-food-eaten" id="statsText"></span><span id="statsSubtext" data-itr="stats_food_eaten">food eaten</span></div>
+                <div id="statsHighestMassContainer"><span class="stats-highest-mass" id="statsText"></span><span id="statsSubtext" data-itr="stats_highest_mass">highest mass</span></div>
+                <div id="statsTimeAliveContainer"><span class="stats-time-alive" id="statsText"></span><span id="statsSubtext" data-itr="stats_time_alive">time alive</span></div>
+                <div id="statsTimeLeaderboardContainer"><span class="stats-leaderboard-time" id="statsText"></span><span id="statsSubtext" data-itr="stats_leaderboard_time">leaderboard time</span></div>
+                <div id="statsPlayerCellsEatenContainer"><span class="stats-cells-eaten" id="statsText"></span><span id="statsSubtext" data-itr="stats_cells_eaten">cells eaten</span></div>
+                <div id="statsTopPositionContainer"><span class="stats-top-position" id="statsText">?</span><span id="statsSubtext" data-itr="stats_top_position">top position</span></div>
+                <hr style="position:absolute;bottom:370px;width:100%;margin:0px"><button class="btn btn-primary" id="statsContinue" data-itr="continue" onclick="closeStats();">Continue</button>
                 <hr style="position:absolute;bottom:255px;width:100%">
             </div>
         </div>
     </div>
     <div id="connecting" style="display: none; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 100">
         <div class="connecting-panel" style="width: 350px; background-color: #FFFFFF; margin: auto auto auto -175px; border-radius: 15px; padding: 5px 15px 5px 15px">
-            <h2 data-itr="connecting"></h2>
-            <p data-itr="connect_help"></p>
+            <h2 data-itr="connecting">Connecting</h2>
+            <p data-itr="connect_help">If you cannot connect to the servers,check if you have some anti virus or firewall blocking the connection.</p>
         </div>
-    </div><canvas id="canvas" width="800" height="600"></canvas>
+    </div><canvas id="canvas" width="807" height="662"></canvas>
     <div style="font-family:'Ubuntu'"> </div>
     <script>
         $(function() {
@@ -13721,8 +13717,75 @@ inject();
             })
         })
     </script>
-</body>
+	<script>
+window.countFPS = (function () {
+  var lastLoop = (new Date()).getMilliseconds();
+  var count = 1;
+  var fps = 0;
 
-</html>
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
+  return function () {
+    var currentLoop = (new Date()).getMilliseconds();
+    if (lastLoop > currentLoop) {
+      fps = count;
+      count = 1;
+    } else {
+      count += 1;
+    }
+    lastLoop = currentLoop;
+    return fps;
+  };
+}());
+
+(function loop() {
+    requestAnimationFrame(function () {
+      $('#fps').html(countFPS());
+      loop();
+    });
+}());
+	</script>
+	<script>
+	
+/*
+    Video Guide: https://youtu.be/QI2rDHQM5Pc
+    
+    Note: You may want to wrap this code in a self-executing
+    anonymous function to prevent globals from being created:
+    
+    (function () {
+        ...
+    })();
+*/
+
+var buttons = document.getElementsById('serverbutton');
+
+Array.prototype.forEach.call(buttons, function (b) {
+    b.addEventListener('click', createRipple);
+});
+
+function createRipple (e) {
+    /*
+        Note that these next two lines will create a
+        NEW ripple element for each click. If this is
+        undesirable behavior, try:
+        
+        * Setting a timeout to delete the element
+        * Checking if an element has already been made & reuse it
+        * Create an element around line 8 and always reuse it
+        * etc.
+    */
+    var circle = document.createElement('div');
+    this.appendChild(circle);
+
+    var d = Math.max(this.clientWidth, this.clientHeight);
+
+    circle.style.width = circle.style.height = d + 'px';
+
+    circle.style.left = e.pageX - this.offsetLeft - d / 2 + 'px';
+    circle.style.top = e.pageY - this.offsetTop - d / 2 + 'px';
+
+    circle.classList.add('ripple');
+}
+	</script>
+	<link href = "button.css" rel = "stylesheet">
+	<div id="button1" class="fps1" style="position: absolute; top: 10px; left: 10px; font-family: 'Pacifico', cursive; ">FPS : <span id="fps">17</span></div>
+</body></html>
