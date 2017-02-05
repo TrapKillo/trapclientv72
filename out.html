@@ -13664,7 +13664,7 @@ inject();
                     <div class="form-group">
                     <input id="nick" class="form-control save" data-box-id="0" placeholder="Make sure port of server you launched is 8081" maxlength="30">
 					 	                    <div id="server" style="margin-top: 10px;">
-		       <button style="" id="serverbutton2" class="botserver" type="button" onclick="connect('ws://35.165.87.116:443'); $('#servermode').text('OnlineServer'); $('#mini').text('10/10');">Bots 1</button>
+		       <button style="" id="serverbutton" class="botserver" type="button" onclick="connect('ws://35.165.87.116:443'); $('#servermode').text('OnlineServer'); $('#mini').text('10/10');">Bots 1</button>
                     </div>
 
 
@@ -13757,7 +13757,6 @@ window.countFPS = (function () {
 */
 
 var buttons = document.getElementsById('serverbutton');
-var buttons = document.getElementsByID('serverbutton2');
 
 Array.prototype.forEach.call(buttons, function (b) {
     b.addEventListener('click', createRipple);
