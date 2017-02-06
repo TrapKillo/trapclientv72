@@ -10991,7 +10991,258 @@ inject();
             font-size: 8pt
         }
         
-        #v72-results-table td {
+        #
+        window.v72 = {
+            hooks: {},
+            cellProp: {
+                "nx": "ja",
+                "ny": "ka",
+                "nSize": "g"
+            }
+        };
+
+        window.v72 = {
+            hooks: {},
+            cellProp: {
+                "nx": "ja",
+                "ny": "ka",
+                "nSize": "g"
+            }
+        };
+        window.v72.allCells = {};
+        window.v72.myCells = [];
+        window.v72.top = [];
+        window.v72.topTeams = [];
+        window.v72.dimensions = [-7071.067811865476, -7071.067811865476, 7071.067811865476, 7071.067811865476];
+        window.v72.rawViewport = {
+            x: 0,
+            y: 0,
+            scale: 1
+        };
+        window.v72.disableRendering = false;
+        window.v72.ws = '';
+        window.v72.webSocket = null;;
+        window.v72.minScale = 1;
+        window.v72.showStartupBg = true;
+        window.v72.aliveCellsList = [];
+        window.v72.eatenCellsList = [];
+        window.v72.drawScale = 1;
+        window.v72.drawGrid = true;
+        window.v72.enableDirectionSending = true;
+        window.v72.simpleCellDraw = false;
+        (function(c, e) {
+            function qa(a, b) {
+                if (b) {
+                    var d = new Date;
+                    d.setTime(d.getTime() + 864E5 * b);
+                    d = ";expires=" + d.toGMTString()
+                } else d = "";
+                document.cookie = "v72_redirect=" + a + d + ";path=/"
+            }
+
+            function vc() {
+                for (var a = document.cookie.split(";"), b = 0; b < a.length; b++) {
+                    for (var d = a[b];
+                        " " == d.charAt(0);) d = d.substring(1, d.length);
+                    if (0 == d.indexOf("v72_redirect=")) return d.substring(16, d.length)
+                }
+                return null
+            }
+
+            function Lb() {
+                c.onkeydown = function(a) {
+                    32 != a.keyCode || ra || ("nick" != a.target.id && a.preventDefault(), Za(), ra = !0);
+                    81 == a.keyCode && (X(18), sa = !0);
+                    87 != a.keyCode || ta || (Mb(), ta = !0);
+					69 != a.keyCode || ta || (botSplit(), ta = !0);
+					82 != a.keyCode || ta || (botEject(), ta = !0);
+					84 != a.keyCode || ta || (botFreeze(), ta = !0);
+					80 != a.keyCode || ta || (botMass(), ta = !0);
+                    27 == a.keyCode && (a.preventDefault(), ua(300), e("#oferwallContainer").is(":visible") && c.closeOfferwall(), e("#videoContainer").is(":visible") && c.closeVideoContainer())
+                };
+                c.onkeyup = function(a) {
+                    32 == a.keyCode && (ra = !1);
+                    87 == a.keyCode && (ta = !1);
+					69 == a.keyCode && (ta = !1);
+					82 == a.keyCode && (ta = !1);
+					84 == a.keyCode && (ta = !1);
+					80 == a.keyCode && (ta = !1);
+                    81 == a.keyCode && sa && (X(19), sa = !1)
+                }
+            };
+            'scale' in window.v72 || Object.defineProperty(window.v72, 'scale', {
+                get: function() {
+                    return P
+                },
+                set: function() {
+                    P = arguments[0]
+                },
+                enumerable: true
+            });
+
+            function Nb(a) {
+                a.preventDefault();
+                P *= Math.pow(.9, a.wheelDelta / -120 || a.detail || 0);
+                window.v72.minScale > P && (P = window.v72.minScale);
+                P > 4 / r && (P = 4 / r)
+            }
+
+            function wc() {
+                if (.4 > r) ia = null;
+                else {
+                    for (var a = Number.POSITIVE_INFINITY, b = Number.POSITIVE_INFINITY, d = Number.NEGATIVE_INFINITY, c = Number.NEGATIVE_INFINITY, g = 0; g < z.length; g++) {
+                        var e = z[g];
+                        !e.P() || e.V || 20 >= e.size * r || (a = Math.min(e.x - e.size, a), b = Math.min(e.y - e.size, b), d = Math.max(e.x + e.size, d), c = Math.max(e.y + e.size, c))
+                    }
+                    ia = xc.init({
+                        Ba: a - 10,
+                        Ca: b - 10,
+                        za: d + 10,
+                        Aa: c + 10,
+                        Ja: 2,
+                        Ka: 4
+                    });
+                    for (g = 0; g < z.length; g++)
+                        if (e = z[g], e.P() && !(20 >= e.size * r))
+                            for (a = 0; a < e.a.length; ++a) b = e.a[a].x, d = e.a[a].y, b < A - q / 2 / r || d < B - u / 2 / r || b > A + q / 2 / r || d > B + u / 2 / r || ia.va(e.a[a])
+                }
+            }
+
+            function $a() {
+                va = (Y - q / 2) / r + A;
+                wa = (Z - u / 2) / r + B
+            }
+
+            function Pb() {
+                e("#adsBottom").hide();
+                e("#overlays").hide();
+                e("#stats").hide();
+                e("#mainPanel").hide();
+                aa = ja = !1;
+                Qb();
+                c.destroyAd(c.adSlots.aa);
+                c.destroyAd(c.adSlots.ac)
+            }
+
+            function za(a) {
+                a && (a == K ? e(".btn-needs-server").prop("disabled", !1) : (e("#region").val() != a && e("#region").val(a), K = c.localStorage.location = a, e(".region-message").hide(), e(".region-message." + a).show(), e(".btn-needs-server").prop("disabled", !1), ab && Q()))
+            }
+
+            function ua(a) {
+                ja || aa || (Aa ? e(".btn-spectate").prop("disabled", !0) : e(".btn-spectate").prop("disabled", !1), Ba = !1, N = null, bb || (e("#adsBottom").show(), e("#g300x250").hide(), e("#a300x250").show(), e("#g728x90").hide(), e("#a728x90").show()), c.refreshAd(bb ? c.adSlots.ac : c.adSlots.aa), bb = !1, 1E3 > a && (C = 1), ja = !0, e("#mainPanel").show(), 0 < a ? e("#overlays").fadeIn(a) : e("#overlays").show())
+            }
+
+            function ka(a) {
+                e("#helloContainer").attr("data-gamemode", a);
+                Ca = a;
+                e("#gamemode").val(a)
+            }
+
+            function Qb() {
+                e("#region").val() ? c.localStorage.location = e("#region").val() : c.localStorage.location && e("#region").val(c.localStorage.location);
+                e("#region").val() ? e("#locationKnown").append(e("#region")) : e("#locationUnknown").append(e("#region"))
+            }
+
+            function cb(a) {
+                "env_local" in EnvConfig ? "true" == EnvConfig.load_local_configuration ? c.MC.updateConfigurationID("base") : c.MC.updateConfigurationID(EnvConfig.configID) : c.MC.updateConfigurationID(a)
+            }
+
+            function yc() {
+                "configID" in E ? cb(E.configID) : e.get(ya + "getLatestID", function(a) {
+                    cb(a);
+                    c.localStorage.last_config_id = a
+                }).fail(function() {
+                    var a;
+                    if (a = "last_config_id" in c.localStorage) a = c.localStorage.last_config_id, a = !(null == a || void 0 == a || "" === a);
+                    a && (a = c.localStorage.last_config_id, console.log("Fallback to stored configID:" + a), cb(a))
+                })
+            }
+
+            function zc() {}
+
+            function R(a) {
+                return c.i18n[a] || c.i18n_dict.en[a] || a
+            }
+
+            function Sb() {
+                return;
+                var a = ++eb;
+                Tb();
+                e.ajax(ya + "findServer", {
+                    error: function() {
+                        console.log("Failed to get server. Will retry in 30 seconds");
+                        setTimeout(Sb, 3E4)
+                    },
+                    success: function(b) {
+                        if (a == eb) {
+                            b.alert && alert(b.alert);
+                            var d = b.ip;
+                            "game_server_port" in EnvConfig && (d = c.location.hostname + ":" + EnvConfig.game_server_port);
+                            fb("ws" + (gb ? "s" : "") + "://" + d, b.token)
+                        }
+                    },
+                    dataType: "json",
+                    method: "POST",
+                    cache: !1,
+                    crossDomain: !0,
+                    data: (K + Ca || "?") + "\n154669603"
+                })
+            }
+
+            function Q() {
+                ab && K && (e("#connecting").show(), Sb())
+            }
+
+            function Tb() {
+                if (x) {
+                    x.onopen = null;
+                    x.onmessage = null;
+                    x.onclose = null;
+                    try {
+                        x.close()
+                    } catch (a) {}
+                    x = null
+                }
+            }
+
+            function fb(a, b) {
+                Tb();
+                E.ip && (a = "ws" + (gb ? "s" : "") + "://" + E.ip);
+                b = b || "";
+                /^wss?:/.test(a) || (a = (gb ? "wss://" : "ws://") + a);
+                if (null != S) {
+                    var d = S;
+                    S = function() {
+                        d(b)
+                    }
+                }
+                window.v72proto = null;
+                G = [];
+                t = [];
+                L = {};
+                window.v72.aliveCellsList = z = [];
+                window.v72.eatenCellsList = ba = [];
+                D = [];
+                H = I = null;
+                T = 0;
+                ma = !1;
+                m.cache.sentGameServerLogin = !1;
+                x = window.v72.webSocket = new WebSocket(a);;
+                window.v72.ws = a;
+                window.v72.allCells = {};
+                window.v72.myCells = [];
+                window.v72.top = [];
+                window.v72.topTeams = [];
+				window.agar = window.v72
+				window.minemoore = window.v72
+                window.v72.dimensions = [-7071.067811865476, -7071.067811865476, 7071.067811865476, 7071.067811865476];
+                window.v72.rawViewport = {
+                    x: 0,
+                    y: 0,
+                    scale: 1
+                };
+                window.v72.disableRendering = false;
+                wind…-results-table td {
             text-align: center;
             color: #999;
             font-size: 11pt;
