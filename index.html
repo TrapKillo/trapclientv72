@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>YT Thumbnail Finder</title>
+        <link href="https://fonts.googleapis.com/css2?family=Staatliches" rel="stylesheet">
+        <style>
+            body {
+                background: rgb(0, 0, 0);
+                color: white;
+                text-align: center;
+                position: center;
+            }
+            h1, h2 {
+                position: center, absolute;
+                font-family: 'Staatliches', serif;
+                font-size: 3rem;
+            }
+            p {
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            input[type=button] {
+                background-color: transparent;
+                color: white;
+                border: white;
+                border-radius: 1px solid white;
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+                font-size: 20px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                cursor: pointer;
+            }
+            input[type=text] {
+                width: 30%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 3px solid rgb(0, 0, 0);
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+                outline: none;
+            }
+            input[type=text]:focus, input[type=button]:focus {
+                background-color: white;
+                color: black;
+                border: 3px solid rgba(255, 255, 255);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Youtube Thumbnail Finder</h1>
+        <br>
+        <p>Welcome to the <a style="font-size: 110%; font-weight: bold;">Youtube Thumbnail Finder website.</a>
+            <br>
+            Please put the youtube video link down below and click the button Open to find the video thumbnail you're searching for.
+        </p>
+        <br>
+        <a style="font-size: 150%; font-weight: bold;"> Link: </a><input id="link" type="text" placeholder="Youtube video url/link">
+        <br>
+        <br>
+        <input type="button" onclick="search()" value="Open">
+        <script type="text/javascript">
+            function search() {
+                let link = document.getElementById('link').value;
+                let url = null;
+                if(link == "") return alert('Please add a link!');
+                if(link.match('youtube.com')) {
+                    url = link.split('https://www.youtube.com/watch?v=')[1];
+                    window.open(`https://img.youtube.com/vi/${url}/maxresdefault.jpg`)
+                } else if(link.match('youtu.be')) {
+                    url = link.split('https://youtu.be/')[1];
+                    window.open(`https://img.youtube.com/vi/${url}/maxresdefault.jpg`)
+                } else return alert('Please put a valid link/Video was not found.');
+                console.log(url);
+            }
+        </script>
+    </body>
+</html>
